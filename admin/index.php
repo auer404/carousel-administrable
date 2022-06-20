@@ -30,6 +30,7 @@
     ?>
     
     <form method="post" action="admin_php_scripts/add_image.php" enctype="multipart/form-data">
+	    <!-- enctype="multipart/form-data" : IMPORTANT POUR GÉRER FICHIERS -->
         
         <h3>Ajouter une image :</h3>
         
