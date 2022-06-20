@@ -30,16 +30,20 @@
     ?>
     
     <form method="post" action="admin_php_scripts/add_image.php" enctype="multipart/form-data">
-	    <!-- enctype="multipart/form-data" : IMPORTANT POUR GÉRER FICHIERS -->
+       <!-- enctype="multipart/form-data" : IMPORTANT POUR GÉRER FICHIERS -->
         
-        <h3>Ajouter une image :</h3>
+        <h3>Cliquez ou glissez une image ici</h3>
+        <!-- 1) Glisser un fichier sur un input type=file revient à choisir ce fichier dans la boîte de sélection s'ouvrant au clic -->
         
-        <input type="file" name="new_image_input">
+        <!-- 2) le formulaire s'auto-valide lorsqu'on choisit un fichier -->
+        <input type="file" name="new_image_input" onchange="this.parentElement.submit()">
         
+        <!-- 3) Ce submit n'est plus utilisé donc /!\ un test doit sauter dans add_image.php -->
         <input type="submit" value="Ajouter" name="new_image_validation">
         
+        <!-- 4) En CSS on stylise le form et le input type=file -->
+        
     </form>
-    
     
 </body>
 

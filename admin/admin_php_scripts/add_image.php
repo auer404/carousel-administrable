@@ -2,16 +2,19 @@
 
 include("../../php_scripts/toolbox.php");
 
-if (!isset($_POST["new_image_validation"])) {
-    // vérifier si l'info provient bien du bon formulaire (via le nom du submit)
-    header("location:../");
-    exit();
-}
+//if (!isset($_POST["new_image_validation"])) {
+//    // vérifier si l'info provient bien du bon formulaire (via le nom du submit)
+//    header("location:../");
+//    exit();
+//}
+// Test ci-dessus plus compatible avec fonctionnalité de glissage d'image - pas validé par JS lors de input.onchange(){ form.submit() }
 
 $image_filename = upload_image("new_image_input" , "../../images/");
 
-// Phase intermédiaire avant gestion requête + redirection finale :
-// On teste si l'upload fonctionne.
+// Mais le résultat de upload_image peut aider à rester sécurisé :
+if (!$image_filename) {header("location:../"); exit();}
+// (La fonction n'accepte que les jpg , png et gif)
+
 //echo "Image uploadée : " . $image_filename;
 
 $DB = set_sql_connection();
