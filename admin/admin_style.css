@@ -1,0 +1,9 @@
+.admin_carousel_elem {
+    width:200px; height:200px;
+    display:inline-block;
+}
+
+.admin_carousel_elem img {
+    width:100%; height:100%;
+    object-fit:cover;
+}
